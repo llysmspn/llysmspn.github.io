@@ -1,108 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Lily's actual real website</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="author" content="">
-
-
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flat and Tabs View Toggle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button {
+            cursor: pointer;
+        }
+        .tab-button.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .mobile-menu.open {
+            display: block;
+        }
+        .tab-button-mobile.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Toggle Switch -->
+        <div class="mb-8 flex items-center justify-center gap-4 bg-white p-4 rounded-lg shadow-md">
+            <span id="linearViewLabel" class="text-gray-700 font-medium cursor-pointer hover:text-blue-600 transition-colors">Linear View</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="viewToggle" class="sr-only peer">
+                <div class="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
+            <span id="tabbedViewLabel" class="text-gray-700 font-medium cursor-pointer hover:text-blue-600 transition-colors">Tabbed View</span>
+        </div>
 
-<body class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover" style="background-image:url('https://www.dsapps.dev/author/lily-simpson/Wxtm7JZmDO-320.jpeg');">
+        <!-- Main Page Title -->
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 text-center px-4">Web Development Guide</h1>
 
+        <!-- Tab Navigation (hidden in linear view) -->
+        <div id="tabNavigation" class="hidden mb-6">
+            <!-- Desktop Tab Navigation -->
+            <div class="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="flex border-b">
+                    <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors active" data-tab="section1">
+                        Section 1
+                    </button>
+                    <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section2">
+                        Section 2
+                    </button>
+                    <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section3">
+                        Section 3
+                    </button>
+                    <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section4">
+                        Section 4
+                    </button>
+                    <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section5">
+                        Section 5
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Hamburger Menu -->
+            <div class="md:hidden">
+                <button id="hamburgerButton" class="w-full bg-white rounded-lg shadow-md px-4 py-3 flex items-center justify-between font-semibold text-gray-700 hover:bg-gray-100 transition-colors">
+                    <span id="hamburgerLabel">Section 1</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="hamburgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div id="mobileMenu" class="mobile-menu mt-2 bg-white rounded-lg shadow-md overflow-hidden">
+                    <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors active" data-tab="section1">
+                        Section 1
+                    </button>
+                    <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section2">
+                        Section 2
+                    </button>
+                    <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section3">
+                        Section 3
+                    </button>
+                    <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section4">
+                        Section 4
+                    </button>
+                    <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section5">
+                        Section 5
+                    </button>
+                </div>
+            </div>
+        </div>
 
+        <!-- Content Sections -->
+        <div id="contentWrapper">
+            <div id="contentContainer">
+                <!-- Section 1 -->
+                <section id="section1" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section One</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Introduction to Web Development</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Web development is the process of building websites and web applications. It involves a combination of front-end and back-end technologies to create interactive and dynamic user experiences.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Modern web development utilizes various frameworks and libraries to streamline the development process and enhance functionality.
+                </p>
+            </section>
 
-  <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
-    
-	<!--Main Col-->
-	<div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
-	
+            <!-- Section 2 -->
+            <section id="section2" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section Two</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Front-End Technologies</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Front-end development focuses on the user interface and user experience. It involves HTML, CSS, and JavaScript to create visually appealing and interactive web pages.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Popular front-end frameworks include React, Vue.js, and Angular, which help developers build complex applications more efficiently.
+                </p>
+            </section>
 
-		<div class="p-4 md:p-12 text-center lg:text-left">
-			<!-- Image for mobile view-->
-			<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://www.dsapps.dev/author/lily-simpson/Wxtm7JZmDO-320.jpeg')"></div>
-			
-			<h1 class="text-3xl font-bold pt-8 lg:pt-0">Lily Simpson</h1>
-			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-			<p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z"/></svg> What you do</p>
-			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-green-700 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 20a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm7.75-8a8.01 8.01 0 0 0 0-4h-3.82a28.81 28.81 0 0 1 0 4h3.82zm-.82 2h-3.22a14.44 14.44 0 0 1-.95 3.51A8.03 8.03 0 0 0 16.93 14zm-8.85-2h3.84a24.61 24.61 0 0 0 0-4H8.08a24.61 24.61 0 0 0 0 4zm.25 2c.41 2.4 1.13 4 1.67 4s1.26-1.6 1.67-4H8.33zm-6.08-2h3.82a28.81 28.81 0 0 1 0-4H2.25a8.01 8.01 0 0 0 0 4zm.82 2a8.03 8.03 0 0 0 4.17 3.51c-.42-.96-.74-2.16-.95-3.51H3.07zm13.86-8a8.03 8.03 0 0 0-4.17-3.51c.42.96.74 2.16.95 3.51h3.22zm-8.6 0h3.34c-.41-2.4-1.13-4-1.67-4S8.74 3.6 8.33 6zM3.07 6h3.22c.2-1.35.53-2.55.95-3.51A8.03 8.03 0 0 0 3.07 6z"/></svg> Your Location - 25.0000° N, 71.0000° W</p>
-			<p class="pt-8 text-sm">I can code websites, me.</p>
+            <!-- Section 3 -->
+            <section id="section3" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section Three</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Back-End Development</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Back-end development handles server-side logic, database management, and API creation. It ensures that the front-end has the data and functionality it needs.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Common back-end technologies include Node.js, Python (Django/Flask), Ruby on Rails, and PHP, each offering unique advantages for different use cases.
+                </p>
+            </section>
 
-			<div class="pt-12 pb-8">
-				<button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
-				  Get In Touch
-				</button> 
-			</div>
+            <!-- Section 4 -->
+            <section id="section4" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section Four</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Database Management</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Databases are essential for storing and retrieving data in web applications. They come in various forms, including relational and NoSQL databases.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Popular database systems include MySQL, PostgreSQL, MongoDB, and Redis, each suited for different data storage and retrieval patterns.
+                </p>
+            </section>
 
-			<div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
-				<a class="link" href="https://github.com/llysmspn" data-tippy-content="@llysmpsn"><svg class="h-6 fill-current text-gray-600 hover:text-green-700" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-				
-			</div>
-			
-			<!-- Use https://simpleicons.org/ to find the svg for your preferred product --> 
+            <!-- Section 5 -->
+            <section id="section5" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section Five</h2>
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Deployment and DevOps</h3>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Deployment involves making your web application accessible to users on the internet. This process includes hosting, configuration, and continuous integration.
+                </p>
+                <p class="text-gray-600 leading-relaxed">
+                    Modern DevOps practices utilize tools like Docker, Kubernetes, CI/CD pipelines, and cloud platforms such as AWS, Azure, and Google Cloud to streamline deployment processes.
+                </p>
+            </section>
+            </div>
+        </div>
+    </div>
 
-		</div>
+    <script>
+        const toggle = document.getElementById('viewToggle');
+        const tabNavigation = document.getElementById('tabNavigation');
+        const contentWrapper = document.getElementById('contentWrapper');
+        const contentContainer = document.getElementById('contentContainer');
+        const sections = document.querySelectorAll('.content-section');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const mobileTabButtons = document.querySelectorAll('.tab-button-mobile');
+        const hamburgerButton = document.getElementById('hamburgerButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const hamburgerLabel = document.getElementById('hamburgerLabel');
+        const linearViewLabel = document.getElementById('linearViewLabel');
+        const tabbedViewLabel = document.getElementById('tabbedViewLabel');
 
-	</div>
-	
-	<!--Img Col-->
-	<div class="w-full lg:w-2/5">
-		<!-- Big profile image for side bar (desktop) -->
-		<img src="https://source.unsplash.com/EXuKQaf3Ei8" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
-		<!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
-		
-	</div>
-	
-	
-	<!-- Pin to top right corner -->
-	  <div class="absolute top-0 right-0 h-12 w-18 p-4">
-		<button class="js-change-theme focus:outline-none">🌙</button>
-	  </div>
+        // Initialize: start with linear view
+        let isTabbedView = false;
+        switchToLinearView(); // Initialize on page load
 
-</div>
+        function switchToLinearView() {
+            isTabbedView = false;
+            tabNavigation.classList.add('hidden');
+            mobileMenu.classList.remove('open'); // Close mobile menu
+            // Add white background wrapper styling with responsive padding
+            contentWrapper.classList.add('bg-white', 'p-4', 'md:p-8', 'rounded-lg', 'shadow-md');
+            sections.forEach(section => {
+                section.classList.remove('tab-content');
+                section.classList.remove('active');
+                // Remove individual section styling
+                section.classList.remove('bg-white', 'p-4', 'md:p-8', 'rounded-lg', 'shadow-md', 'mb-8');
+                section.classList.add('mb-8', 'last:mb-0');
+                section.style.display = 'block';
+            });
+        }
 
-	<script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
-	<script src="https://unpkg.com/tippy.js@4"></script>
-	<script>
-		//Init tooltips
-		tippy('.link',{
-		  placement: 'bottom'
-		})
+        function switchToTabbedView() {
+            isTabbedView = true;
+            tabNavigation.classList.remove('hidden');
+            mobileMenu.classList.remove('open'); // Close mobile menu
+            // Remove wrapper styling
+            contentWrapper.classList.remove('bg-white', 'p-4', 'md:p-8', 'rounded-lg', 'shadow-md');
+            sections.forEach((section, index) => {
+                section.style.display = ''; // Remove inline style
+                section.classList.add('tab-content');
+                // Restore individual section styling with responsive padding
+                section.classList.add('bg-white', 'p-4', 'md:p-8', 'rounded-lg', 'shadow-md', 'mb-8');
+                section.classList.remove('last:mb-0');
+                if (index === 0) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            // Activate first tab button (desktop)
+            tabButtons.forEach((btn, index) => {
+                if (index === 0) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            // Activate first tab button (mobile)
+            mobileTabButtons.forEach((btn, index) => {
+                if (index === 0) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            // Set hamburger label
+            hamburgerLabel.textContent = 'Section 1';
+        }
 
-		//Toggle mode
-		const toggle = document.querySelector('.js-change-theme');
-		const body = document.querySelector('body');
-		const profile = document.getElementById('profile');
-		
-		
-		toggle.addEventListener('click', () => {
+        // Toggle event listener
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                switchToTabbedView();
+            } else {
+                switchToLinearView();
+            }
+        });
 
-		  if (body.classList.contains('text-gray-900')) {
-			toggle.innerHTML = "☀️";
-			body.classList.remove('text-gray-900');
-			body.classList.add('text-gray-100');
-			profile.classList.remove('bg-white');
-			profile.classList.add('bg-gray-900');
-		  } else
-		  {
-			toggle.innerHTML = "🌙";
-			body.classList.remove('text-gray-100');
-			body.classList.add('text-gray-900');
-			profile.classList.remove('bg-gray-900');			
-			profile.classList.add('bg-white');
-			
-		  }
-		});
-		
+        // Label click handlers
+        linearViewLabel.addEventListener('click', function() {
+            if (toggle.checked) {
+                toggle.checked = false;
+                switchToLinearView();
+            }
+        });
+
+        tabbedViewLabel.addEventListener('click', function() {
+            if (!toggle.checked) {
+                toggle.checked = true;
+                switchToTabbedView();
+            }
+        });
+
+        // Function to update active tab
+        function setActiveTab(targetSection) {
+            // Update desktop tab buttons
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-tab') === targetSection) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update mobile tab buttons
+            mobileTabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-tab') === targetSection) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update hamburger label
+            const sectionNames = {
+                'section1': 'Section 1',
+                'section2': 'Section 2',
+                'section3': 'Section 3',
+                'section4': 'Section 4',
+                'section5': 'Section 5'
+            };
+            hamburgerLabel.textContent = sectionNames[targetSection] || 'Select Section';
+            
+            // Show corresponding section
+            sections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === targetSection) {
+                    section.classList.add('active');
+                }
+            });
+            
+            // Close mobile menu
+            mobileMenu.classList.remove('open');
+        }
+
+        // Hamburger button event listener
+        hamburgerButton.addEventListener('click', function() {
+            if (!isTabbedView) return;
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Desktop tab button event listeners
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (!isTabbedView) return;
+                const targetSection = this.getAttribute('data-tab');
+                setActiveTab(targetSection);
+            });
+        });
+
+        // Mobile tab button event listeners
+        mobileTabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (!isTabbedView) return;
+                const targetSection = this.getAttribute('data-tab');
+                setActiveTab(targetSection);
+            });
+        });
     </script>
-	
 </body>
-
 </html>
+
