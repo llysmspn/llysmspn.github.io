@@ -1,4 +1,4 @@
-# [llysmpsn.github.io](https://llysmspn.github.io/)
+# <a href="https://llysmspn.github.io/" target="_blank">llysmpsn.github.io</a>
 
 It's a website, built using the [Cursor](https://cursor.com/) AI code editor.
 
