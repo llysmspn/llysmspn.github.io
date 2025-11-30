@@ -18,7 +18,7 @@ Fix styles
 > hover text on the tabs should be black
 
 Better page hierarchy
-> I think we need a single h1 at the top to say what the page is about, and each section shopuld be h2 and below
+> I think we need a single h1 at the top to say what the page is about, and each section should be h2 and below
 
 Mobile support
 > make it mobile friendly, so that smaller screens have a hamburger button
@@ -27,4 +27,5 @@ Better toggling
 > When you click on the text of either
 > - Linear View
 > - Tabbed View
+>   
 > It should correctly toggle the button/view
