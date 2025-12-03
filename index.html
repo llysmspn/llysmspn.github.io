@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flat and Tabs View Toggle</title>
+    <title>Huntington's Disease</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .tab-content {
@@ -44,7 +44,7 @@
         </div>
 
         <!-- Main Page Title -->
-        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 text-center px-4">Web Development Guide</h1>
+        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 text-center px-4">Huntington's Disease</h1>
 
         <!-- Tab Navigation (hidden in linear view) -->
         <div id="tabNavigation" class="hidden mb-6">
@@ -52,10 +52,10 @@
             <div class="hidden md:block bg-white rounded-lg shadow-md overflow-hidden">
                 <div class="flex border-b">
                     <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors active" data-tab="section1">
-                        Section 1
+                        Introduction
                     </button>
                     <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section2">
-                        Section 2
+                        Genetics
                     </button>
                     <button class="tab-button flex-1 px-6 py-4 text-center font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section3">
                         Section 3
@@ -72,17 +72,17 @@
             <!-- Mobile Hamburger Menu -->
             <div class="md:hidden">
                 <button id="hamburgerButton" class="w-full bg-white rounded-lg shadow-md px-4 py-3 flex items-center justify-between font-semibold text-gray-700 hover:bg-gray-100 transition-colors">
-                    <span id="hamburgerLabel">Section 1</span>
+                    <span id="hamburgerLabel">Introduction</span>
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="hamburgerIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
                 <div id="mobileMenu" class="mobile-menu mt-2 bg-white rounded-lg shadow-md overflow-hidden">
                     <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors active" data-tab="section1">
-                        Section 1
+                        Introduction
                     </button>
                     <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section2">
-                        Section 2
+                        Genetics
                     </button>
                     <button class="tab-button-mobile w-full px-4 py-3 text-left font-semibold text-gray-700 hover:bg-gray-100 hover:text-black transition-colors" data-tab="section3">
                         Section 3
@@ -102,25 +102,73 @@
             <div id="contentContainer">
                 <!-- Section 1 -->
                 <section id="section1" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section One</h2>
-                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Introduction to Web Development</h3>
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Introduction to Huntington's Disease</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">
-                    Web development is the process of building websites and web applications. It involves a combination of front-end and back-end technologies to create interactive and dynamic user experiences.
+                    Huntington's disease is a rare, inherited condition that affects the brain. Over time, it causes changes in movement, thinking, behaviour, and mood. These changes usually start in adulthood often between the ages of 30 and 50 - and gradually become more noticeable as the disease progresses.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    People with Huntington's experience a range of symptoms including uncontrolled movements, changes in thinking, emotional changes and difficulties with everyday tasks. As this condition gradually affects how the brain works, it can have a major impact on daily life.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Huntington's disease is caused by a change to a specific gene, meaning that:
+                </p>
+                <ul class="text-gray-600 leading-relaxed mb-4 list-disc list-inside space-y-2 ml-4">
+                    <li>A person can have the gene without knowing it.</li>
+                    <li>The disease can be passed from a parent to a child.</li>
+                    <li>If someone carries the gene, they will develop the condition at some point in life, but we cannot tell when symptoms will start.</li>
+                </ul>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    For many people, this uncertainty can be one of the biggest challenges. Unless someone chooses to be tested, they simply won't know their genetic status and so will not know if they are predisposed to the disease.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Currently, there is no cure for Huntington's disease, but there are some treatments that can manage symptoms, these include medications for mood or movement. We have the ability to test for the gene that causes the disease either prenatally (during pregnancy) or predictive testing in adults (before symptoms appear). This can give clarity on if the individual will develop the disease, however it also raises some very difficult decisions. Some people will want to know, whilst others would prefer not to.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    This leads us to ask, if there is a test for Huntington's disease, a serious health condition with no cure, should we use it? And if we do… who should we test? Adults only or unborn babies as well?
                 </p>
                 <p class="text-gray-600 leading-relaxed">
-                    Modern web development utilizes various frameworks and libraries to streamline the development process and enhance functionality.
+                    These are the questions at the heart of Huntington's disease and the focus of this project.
                 </p>
             </section>
 
             <!-- Section 2 -->
             <section id="section2" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Section Two</h2>
-                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Front-End Technologies</h3>
+                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Genetics of Huntington's Disease</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">
-                    Front-end development focuses on the user interface and user experience. It involves HTML, CSS, and JavaScript to create visually appealing and interactive web pages.
+                    Huntington's disease is caused by a change in a single gene called the HTT gene. This gene contains a short piece of DNA that repeats the same sequence over and over again - the letters C-A-G (each represents a base of DNA).
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    You can think of this as a word typed many times in a row: CAGCAGCAGCAGCAG…
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    The HTT gene normally makes a protein that helps brain cells stay healthy. When the CAG repeat becomes too long, the protein becomes faulty and does not work as well, meaning the brain does not work as well. This faulty protein slowly damages brain cells over many years, leading to symptoms.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    Every person has some number of these CAG repeats.
+                </p>
+                <ul class="text-gray-600 leading-relaxed mb-4 list-disc list-inside space-y-2 ml-4">
+                    <li>Most people have a small number, which is completely harmless.</li>
+                    <li>People with Huntington's have a much larger number of repeats than normal.</li>
+                </ul>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    This is called a repeat expansion.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    In simple terms:
+                </p>
+                <ul class="text-gray-600 leading-relaxed mb-4 list-disc list-inside space-y-2 ml-4">
+                    <li><strong>40 or more repeats</strong> → the person will develop Huntington's at some point in life.</li>
+                    <li><strong>36-39 repeats</strong> → symptoms may or may not appear (an uncertain range).</li>
+                    <li><strong>35 or fewer repeats</strong> → the person will not develop Huntington's and cannot pass it on.</li>
+                </ul>
+                <p class="text-gray-600 leading-relaxed mb-4 italic">
+                    "Uncertain" clarification - This range behaves unpredictably - some people develop symptoms, while others never do.
+                </p>
+                <p class="text-gray-600 leading-relaxed mb-4">
+                    The number of repeats a person has can influence how severe the disease is, as influences: the age symptoms begin, and how quickly the condition progresses. In general, the more CAG repeats there are, the earlier the onset of symptoms, and the fewer repeats (but still in the disease range) means later onset. However, the exact timing still varies from person to person.
                 </p>
                 <p class="text-gray-600 leading-relaxed">
-                    Popular front-end frameworks include React, Vue.js, and Angular, which help developers build complex applications more efficiently.
+                    The number of CAG repeats can sometimes increase when the gene is passed from a parent to a child. This happens more often when the gene comes from the father. If the repeat number grows, the child may have more repeats than the parent - which can mean the disease starts younger. This pattern, where symptoms appear earlier in the next generation, is called anticipation.
                 </p>
             </section>
 
@@ -232,7 +280,7 @@
                 }
             });
             // Set hamburger label
-            hamburgerLabel.textContent = 'Section 1';
+            hamburgerLabel.textContent = 'Introduction';
         }
 
         // Toggle event listener
@@ -279,8 +327,8 @@
             
             // Update hamburger label
             const sectionNames = {
-                'section1': 'Section 1',
-                'section2': 'Section 2',
+                'section1': 'Introduction',
+                'section2': 'Genetics',
                 'section3': 'Section 3',
                 'section4': 'Section 4',
                 'section5': 'Section 5'
