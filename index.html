@@ -290,9 +290,21 @@
         const linearViewLabel = document.getElementById('linearViewLabel');
         const tabbedViewLabel = document.getElementById('tabbedViewLabel');
 
-        // Initialize: start with linear view
+        // Track current view
         let isTabbedView = false;
-        switchToLinearView(); // Initialize on page load
+
+        // Apply view based on URL hash (#/linear or #/tabbed)
+        function applyHashView() {
+            const hash = window.location.hash;
+            if (hash === '#/tabbed') {
+                if (!toggle.checked) toggle.checked = true;
+                switchToTabbedView();
+            } else {
+                // Default to linear view for '#/linear' or any other hash
+                if (toggle.checked) toggle.checked = false;
+                switchToLinearView();
+            }
+        }
 
         function switchToLinearView() {
             isTabbedView = false;
@@ -348,27 +360,25 @@
             hamburgerLabel.textContent = 'Introduction';
         }
 
-        // Toggle event listener
+        // Toggle event listener -> drive view via hash
         toggle.addEventListener('change', function() {
             if (this.checked) {
-                switchToTabbedView();
+                window.location.hash = '#/tabbed';
             } else {
-                switchToLinearView();
+                window.location.hash = '#/linear';
             }
         });
 
-        // Label click handlers
+        // Label click handlers -> update hash (and therefore view)
         linearViewLabel.addEventListener('click', function() {
-            if (toggle.checked) {
-                toggle.checked = false;
-                switchToLinearView();
+            if (window.location.hash !== '#/linear') {
+                window.location.hash = '#/linear';
             }
         });
 
         tabbedViewLabel.addEventListener('click', function() {
-            if (!toggle.checked) {
-                toggle.checked = true;
-                switchToTabbedView();
+            if (window.location.hash !== '#/tabbed') {
+                window.location.hash = '#/tabbed';
             }
         });
 
@@ -394,9 +404,9 @@
             const sectionNames = {
                 'section1': 'Introduction',
                 'section2': 'Genetics',
-                'section3': 'Section 3',
-                'section4': 'Section 4',
-                'section5': 'Section 5'
+                'section3': 'Testing',
+                'section4': 'Controversy',
+                'section5': 'Conclusion'
             };
             hamburgerLabel.textContent = sectionNames[targetSection] || 'Select Section';
             
@@ -435,6 +445,16 @@
                 setActiveTab(targetSection);
             });
         });
+
+        // Sync view with hash on load and when hash changes
+        window.addEventListener('hashchange', applyHashView);
+
+        if (!window.location.hash) {
+            // Default to linear view and set hash so deep-linking is consistent
+            window.location.hash = '#/linear';
+        } else {
+            applyHashView();
+        }
     </script>
 </body>
 </html>
