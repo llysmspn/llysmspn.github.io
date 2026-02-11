@@ -320,16 +320,18 @@
         // Track current view
         let isTabbedView = false;
 
-        // Apply view based on URL hash (#/linear or #/tabbed)
+        // Apply view based on URL hash (#/burbage or #/curbar)
         function applyHashView() {
             const hash = window.location.hash;
-            if (hash === '#/tabbed') {
+            if (hash === '#/curbar') {
                 if (!toggle.checked) toggle.checked = true;
                 switchToTabbedView();
-            } else {
-                // Default to linear view for '#/linear' or any other hash
+            } else if (hash === '#/burbage') {
+                // Default to linear view for '#/burbage' or any other hash
                 if (toggle.checked) toggle.checked = false;
                 switchToLinearView();
+            } else {
+                document.body.style.display = 'none';
             }
         }
 
@@ -390,22 +392,22 @@
         // Toggle event listener -> drive view via hash
         toggle.addEventListener('change', function() {
             if (this.checked) {
-                window.location.hash = '#/tabbed';
+                window.location.hash = '#/curbar';
             } else {
-                window.location.hash = '#/linear';
+                window.location.hash = '#/burbage';
             }
         });
 
         // Label click handlers -> update hash (and therefore view)
         linearViewLabel.addEventListener('click', function() {
-            if (window.location.hash !== '#/linear') {
-                window.location.hash = '#/linear';
+            if (window.location.hash !== '#/burbage') {
+                window.location.hash = '#/burbage';
             }
         });
 
         tabbedViewLabel.addEventListener('click', function() {
-            if (window.location.hash !== '#/tabbed') {
-                window.location.hash = '#/tabbed';
+            if (window.location.hash !== '#/curbar') {
+                window.location.hash = '#/curbar';
             }
         });
 
@@ -478,7 +480,8 @@
 
         if (!window.location.hash) {
             // Default to linear view and set hash so deep-linking is consistent
-            window.location.hash = '#/linear';
+            // window.location.hash = '#/burbage';
+            document.body.style.display = 'none';
         } else {
             applyHashView();
         }
