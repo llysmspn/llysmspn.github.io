@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Huntington's Disease</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         #toggle,
@@ -17,7 +20,7 @@
             cursor: pointer;
         }
         .tab-button.active {
-            background-color: #3b82f6;
+            background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1)); 
             color: white;
         }
         .mobile-menu {
@@ -27,7 +30,7 @@
             display: block;
         }
         .tab-button-mobile.active {
-            background-color: #3b82f6;
+            background-color: rgb(5 150 105 / var(--tw-bg-opacity, 1)); 
             color: white;
         }
         table caption {
@@ -39,9 +42,23 @@
         tr {
             vertical-align: top;
         }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+        }
+        
     </style>
 </head>
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-emerald-50 min-h-screen">
+    <!-- Page Header -->
+    <header class="bg-emerald-600 text-white shadow">
+        <div class="container mx-auto px-4 py-6 max-w-6xl">
+            <h1 class="text-3xl md:text-3xl">Huntington's Disease</h1>
+        </div>
+    </header>
+
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <!-- Toggle Switch -->
         <div id="toggle" class="mb-8 flex items-center justify-center gap-4 bg-white p-4 rounded-lg shadow-md">
@@ -52,9 +69,6 @@
             </label>
             <span id="tabbedViewLabel" class="text-gray-700 font-medium cursor-pointer hover:text-blue-600 transition-colors">Tabbed View</span>
         </div>
-
-        <!-- Main Page Title -->
-        <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-8 px-4">Huntington's Disease</h1>
 
         <!-- Tab Navigation (hidden in linear view) -->
         <div id="tabNavigation" class="hidden mb-6">
@@ -112,7 +126,7 @@
             <div id="contentContainer">
                 <!-- Section 1 -->
                 <section id="section1" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Introduction to what Huntington's Disease is</h2>
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-4">Introduction to what Huntington's Disease is</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">
                     Huntington’s disease is a rare genetic condition that affects the function of the brain. It is caused by a
                     change or ‘mutation’ in the Huntington gene (HTT) that affects the brain and can be passed down from
@@ -137,7 +151,7 @@
 
             <!-- Section 2 -->
             <section id="section2" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Genetics of Huntington's disease:</h2>
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-4">Genetics of Huntington's disease:</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">
                     Huntington's disease is caused by a change in a single gene called the HTT gene. This gene contains a short piece of DNA that repeats the same sequence over and over again - the letters C-A-G (each represents a base of DNA).
                 </p>
@@ -234,7 +248,7 @@
 
             <!-- Section 3 -->
             <section id="section3" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Testing for Huntington’s Disease</h2>
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-4">Testing for Huntington’s Disease</h2>
                 <p class="text-gray-600 leading-relaxed mb-4">
                     There are two main types of tests for Huntington’s disease: prenatal testing, which looks at a baby’s DNA during pregnancy, and adult predictive testing, where an adult can choose to find out whether they inherited the Huntington’s disease mutation.
                 </p>
@@ -251,12 +265,12 @@
 
             <!-- Section 4 -->
             <section id="section4" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Controversy around Testing</h2>
-                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Issues around prenatal testing:</h3>
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-4">Controversy around Testing</h2>
+                <h3 class="text-xl md:text-2xl text-gray-700 mb-4">Issues around prenatal testing:</h3>
                 <p class="text-gray-600 leading-relaxed mb-4">
                     Predictive testing for Huntington’s disease during pregnancy raises several important ethical and emotional concerns. Because the test is carried out before birth, the future child has no opportunity to choose whether they want this information, even though many at-risk adults later decide they would rather not know. Receiving results during pregnancy can place significant emotional strain on parents, especially when a positive result forces them to consider extremely difficult decisions. For some families, a positive result may lead to discussions about termination, which introduces complex ethical questions, as views on termination vary widely between individuals, cultures, and religions. Prenatal testing can also unintentionally reveal information about the parents themselves, such as their own carrier status, which they may not have wished to learn and which could affect future reproductive choices. In addition, results are not always clear-cut; some fall into “reduced penetrance” or “intermediate” ranges, creating uncertainty that can make decisions even more challenging. Parents may also feel pressure - from family, society, or even healthcare professionals - to test their pregnancy, but it is essential that this decision is made freely and without external influence
                 </p>
-                <h3 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">Issues around testing in adults:</h3>
+                <h3 class="text-xl md:text-2xl text-gray-700 mb-4">Issues around testing in adults:</h3>
                 <p class="text-gray-600 leading-relaxed mb-4">
                     Deciding whether to have genetic testing for Huntington’s disease as an adult is a personal and often very difficult choice. Because there is currently no cure or treatment that can prevent or reverse the disease, some people feel there is little practical benefit in knowing they carry the mutation years before symptoms appear. For some, receiving a positive result could cause significant emotional stress, anxiety, or low mood, and they would rather live without this knowledge. These individuals may worry that knowing their result too early might affect their ability to enjoy life or plan for the future.
                 </p>
@@ -280,7 +294,7 @@
 
             <!-- Section 5 -->
             <section id="section5" class="content-section mb-8 bg-white p-4 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Conclusion</h2>
+                <h2 class="text-2xl md:text-3xl text-gray-900 mb-4">Conclusion</h2>
                 <p class="text-gray-600 leading-relaxed">
                     Huntington’s disease raises difficult questions about testing, choice, and the future. Although modern genetic tests can tell us with certainty whether someone has Huntington's mutation, there is still no cure, and the emotional, practical, and ethical implications are different for every person and every family. Some people feel testing gives clarity and control, while others prefer not to know. The same is true for prenatal testing, which can guide important decisions but also brings complex issues around consent, uncertainty and ethics. Ultimately, there is no single “right” answer. The decision to test, whether in adulthood or during pregnancy, is personal, and should be supported by clear information, counselling, and respect for individual values.
                 </p>
